@@ -69,8 +69,8 @@ class LianJiaChengJiao():
 
 
 class BeiKeChengJiao():
-    mydb=pymysql.connect(host='localhost',user='root',password='123456',database='django_mysql_2',charset='utf8mb4')
-    mycursor=mydb.cursor()
+    # mydb=pymysql.connect(host='localhost',user='root',password='123456',database='django_mysql_2',charset='utf8mb4')
+    # mycursor=mydb.cursor()
     district={
         'th':'tianhe',
         'yx':'yuexiu',
@@ -104,7 +104,7 @@ class BeiKeChengJiao():
             'User-Agent':'Mozilla/5.0 (Linux; Android 8.0; Pixel 2 Build/OPD3.170816.012) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.114 Mobile Safari/537.36'
         }
     def send_request(self,url):
-        resp=requests.get(url,self.header1,timeout=7)
+        resp=requests.get(url,timeout=7)
         if resp.status_code==200:
             return resp
 
@@ -145,15 +145,15 @@ class BeiKeChengJiao():
                 if item:
                     writer.writerow(item)
 
-    def write_mysql(self,lst):
-        try:
-            sql="insert into myapp_house_info_sold (comm_name, room_info, area_info, house_info, deal_date, total_price, position_info, unit_price, district_info) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
-            for item in lst:
-                self.mycursor.execute(sql,item)
-            self.mydb.commit()
-        except Exception as e:
-            self.mydb.rollback()
-            print("存储失败！",e)
+    # def write_mysql(self,lst):
+    #     try:
+    #         sql="insert into myapp_house_info_sold (comm_name, room_info, area_info, house_info, deal_date, total_price, position_info, unit_price, district_info) values(%s,%s,%s,%s,%s,%s,%s,%s,%s)"
+    #         for item in lst:
+    #             self.mycursor.execute(sql,item)
+    #         self.mydb.commit()
+    #     except Exception as e:
+    #         self.mydb.rollback()
+    #         print("存储失败！",e)
 
 
     def clearDB(self):
