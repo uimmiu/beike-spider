@@ -6,8 +6,8 @@ import csv
 from requests.adapters import HTTPAdapter
 
 class LianJiaChengJiao():
-    mydb=pymysql.connect(host='localhost',user='root',password='123456',database='django_mysql_2',charset='utf8mb4')
-    mycursor=mydb.cursor()
+    # mydb=pymysql.connect(host='localhost',user='root',password='123456',database='django_mysql_2',charset='utf8mb4')
+    # mycursor=mydb.cursor()
     district={
         'th':'tianhe',
         'yx':'yuexiu',
@@ -181,8 +181,8 @@ class BeiKeChengJiao():
 
 
 class BeikeZaiShou():#爬取贝壳在售二手房数据
-    mydb=pymysql.connect(host='localhost',user='root',password='123456',database='django_mysql_2',charset='utf8mb4')
-    mycursor=mydb.cursor()
+    # mydb=pymysql.connect(host='localhost',user='root',password='123456',database='django_mysql_2',charset='utf8mb4')
+    # mycursor=mydb.cursor()
     district={
         'th':'tianhe',
         'yx':'yuexiu',
